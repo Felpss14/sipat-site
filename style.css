@@ -18,9 +18,9 @@ body {
 
 #hero {
     color: var(--cor2);
-    height: 520px;
-    width: 50%;
-    margin: 100px;
-    padding: 50px;
+    height: 667px;
+    width: 360px;
+    margin: auto;
+    padding-top: 300px;
     text-align: center;
 }
