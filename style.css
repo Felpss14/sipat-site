@@ -3,6 +3,7 @@
 * {
     margin: 0px;
     padding: 0px;
+     box-sizing: border-box;
 }
 
 :root {
@@ -18,9 +19,25 @@ body {
 
 #hero {
     color: var(--cor2);
-    height: 667px;
-    width: 360px;
-    margin: auto;
-    padding-top: 300px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: var(--cor2);
+    color: var(--cor1);
+    padding: 10px;
+    margin-top: 60px;
+}
+
+button:hover {
+    background-color: var(--cor1);
+    color: var(--cor2);
 }
