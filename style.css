@@ -1,1 +1,26 @@
 @charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --cor1: rgb(0, 0, 0);
+    --cor2: rgb(255, 200, 0);
+    --cor3: rgb(255, 255, 255);
+}
+
+body {
+    background-color: var(--cor1);
+    color: var(--cor3);
+}
+
+#hero {
+    color: var(--cor2);
+    height: 520px;
+    width: 50%;
+    margin: 100px;
+    padding: 50px;
+    text-align: center;
+}
