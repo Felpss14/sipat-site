@@ -1,0 +1,724 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+     box-sizing: border-box;
+}
+
+:root {
+    --cor1: rgb(0, 0, 0);
+    --cor2: rgb(255, 200, 0);
+    --cor3: rgb(255, 255, 255);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cor1);
+    color: var(--cor3);
+    font-family: "Manrope", Arial, sans-serif;
+}
+#hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, .92) 0%, rgba(0, 0, 0, .78) 44%, rgba(0, 0, 0, .35) 100%),
+        url("imagens-sipat/hero-nt2.png") center / cover no-repeat;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .55));
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 75% 42%, rgba(255, 200, 0, .13), transparent 28%),
+        linear-gradient(180deg, transparent 55%, #000 108%);
+}
+
+.hero-container {
+    width: min(1180px, calc(100% - 40px));
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-topbar {
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, .14);
+}
+
+.hero-logo {
+    width: clamp(190px, 28vw, 340px);
+    max-height: 78px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.topbar-link {
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 200, 0, .75);
+    border-radius: 999px;
+    color: var(--cor3);
+    text-decoration: none;
+    font: 700 .88rem/1 "Manrope", sans-serif;
+    transition: .25s ease;
+}
+
+.topbar-link:hover {
+    background: var(--cor2);
+    color: var(--cor1);
+}
+
+.hero-content {
+    width: min(760px, 100%);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 70px 0 92px;
+    text-align: left;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    color: var(--cor2);
+    font: 700 .78rem/1.5 "Manrope", sans-serif;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.hero-eyebrow::before {
+    content: "";
+    width: 38px;
+    height: 2px;
+    background: var(--cor2);
+}
+
+.hero-content h1 {
+    max-width: 730px;
+    margin-bottom: 24px;
+    color: var(--cor3);
+    font: 800 clamp(2.6rem, 6.3vw, 5.3rem)/.98 "Montserrat", sans-serif;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+}
+
+.hero-content p {
+    max-width: 650px;
+    color: rgba(255, 255, 255, .82);
+    font: 500 clamp(1rem, 1.8vw, 1.24rem)/1.7 "Manrope", sans-serif;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.btn {
+    display: inline-flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 26px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font: 800 .92rem/1 "Manrope", sans-serif;
+    text-decoration: none;
+    transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background: var(--cor2);
+    color: var(--cor1);
+    box-shadow: 0 14px 35px rgba(255, 200, 0, .18);
+}
+
+.btn-primary:hover {
+    background: #ffda3e;
+}
+
+.btn-secondary {
+    border-color: rgba(255, 255, 255, .34);
+    background: rgba(255, 255, 255, .05);
+    color: var(--cor3);
+    backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+    border-color: var(--cor3);
+    background: rgba(255, 255, 255, .12);
+}
+
+.hero-proof {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin-top: 56px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, .17);
+}
+
+.proof-item {
+    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 24px;
+    border-right: 1px solid rgba(255, 255, 255, .15);
+}
+
+.proof-item:first-child { padding-left: 0; }
+.proof-item:last-child { border-right: 0; }
+
+.proof-item strong {
+    color: var(--cor2);
+    font: 800 1.35rem/1.2 "Montserrat", sans-serif;
+}
+
+.proof-item span {
+    margin-top: 6px;
+    color: rgba(255, 255, 255, .68);
+    font: 500 .78rem/1.35 "Manrope", sans-serif;
+}
+
+.scroll-indicator {
+    position: absolute;
+    right: 34px;
+    bottom: 30px;
+    width: 28px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, .42);
+    border-radius: 999px;
+}
+
+.scroll-indicator span {
+    width: 4px;
+    height: 8px;
+    margin-top: 9px;
+    border-radius: 999px;
+    background: var(--cor2);
+    animation: scrollMove 1.6s infinite;
+}
+
+@keyframes scrollMove {
+    0% { transform: translateY(0); opacity: 1; }
+    75% { transform: translateY(16px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+}
+
+@media (max-width: 700px) {
+    #hero {
+        background-position: 63% center;
+    }
+
+    .hero-container {
+        width: min(100% - 30px, 1180px);
+    }
+
+    .hero-topbar {
+        min-height: 88px;
+    }
+
+    .hero-logo {
+        width: min(58vw, 240px);
+        max-height: 62px;
+    }
+
+    .topbar-link {
+        display: none;
+    }
+
+    .hero-content {
+        padding: 58px 0 70px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.45rem, 13vw, 4rem);
+    }
+
+    .hero-actions,
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-proof {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+        padding-top: 12px;
+    }
+
+    .proof-item,
+    .proof-item:first-child {
+        min-height: auto;
+        padding: 14px 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .proof-item:last-child {
+        border-bottom: 0;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+#pag2{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    padding:30px 20px;
+    background:var(--cor1);
+}
+
+#pag2 h2{
+    color:var(--cor2);
+    font-size:2rem;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+#pag2 h3{
+    color:var(--cor3);
+    font-size:1.2rem;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+#pag2 p{
+    color:var(--cor3);
+    text-align:center;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+#pag2 img{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+    display:block;
+    margin-top:auto;
+    border-radius:20px;
+}
+
+#pag3{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:35px 20px;
+    background:var(--cor1);
+}
+
+#pag3 h2{
+    color:var(--cor2);
+    font-size:2rem;
+    text-align:center;
+    margin-bottom:35px;
+}
+
+#pag3 ul{
+    width:100%;
+    max-width:420px;
+    list-style:none;
+    background: linear-gradient(180deg,#ffffff,#939393);
+    border: 2px solid #FFC800;
+    box-shadow:0 12px 35px rgba(0,0,0,.25);
+    border-radius:20px;
+    border:3px solid var(--cor2);
+    padding:20px;
+}
+
+#pag3 li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#000;
+    font-size:0.95rem;
+    font-weight:600;
+    padding:16px 0;
+    border-bottom:1px solid #e5e5e5;
+}
+
+#pag3 li:last-child{
+    border-bottom:none;
+}
+
+#pag3 li::before{
+    content:"✓";
+    color:var(--cor2);
+    font-weight:bold;
+    margin-right:12px;
+}
+
+#pag4{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 20px;
+    background-color: var(--cor1);
+}
+
+#pag4 h2{
+    color: var(--cor2);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#pag4 ul{
+    width:100%;
+    max-width:420px;
+    list-style:none;
+    background: linear-gradient(180deg,#ffffff,#939393);
+    border: 2px solid #FFC800;
+    box-shadow:0 12px 35px rgba(0,0,0,.25);
+    border-radius:20px;
+    border:3px solid var(--cor2);
+    padding:20px;
+}
+
+#pag4 li{
+    display: flex;
+    align-items: center;
+    color: var(--cor1);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#pag4 li:last-child{
+   border-bottom: none;
+}
+
+#pag4 li::before{
+    content: "✓";
+    color: var(--cor2);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+/* PÁGINA 5 — MISSÃO, VISÃO, CTA E RODAPÉ */
+
+#pag5 {
+    width: 100%;
+    background: #080808;
+    color: var(--cor3);
+}
+
+.proposito-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    padding: 100px 24px;
+}
+
+.titulo-secao {
+    max-width: 720px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.subtitulo-dourado {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--cor2);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.titulo-secao h2 {
+    margin-bottom: 20px;
+    color: var(--cor3);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+}
+
+.titulo-secao p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: #bcbcbc;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.proposito-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.proposito-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 330px;
+    padding: 42px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+    border: 1px solid rgba(255, 200, 0, 0.25);
+    border-radius: 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.proposito-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 4px;
+    background: var(--cor2);
+}
+
+.proposito-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--cor2);
+}
+
+.card-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 28px;
+    background: rgba(255, 200, 0, 0.12);
+    border: 1px solid rgba(255, 200, 0, 0.35);
+    border-radius: 16px;
+    color: var(--cor2);
+    font-size: 1.7rem;
+}
+
+.proposito-card h3 {
+    margin-bottom: 18px;
+    color: var(--cor3);
+    font-size: 1.55rem;
+}
+
+.proposito-card p {
+    color: #c8c8c8;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* CHAMADA FINAL */
+
+.cta-final {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 24px;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.84),
+            rgba(0, 0, 0, 0.9)
+        ),
+        url("imagens-sipat/hero-nt2.png") center/cover no-repeat;
+}
+
+.cta-final::before {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    top: -170px;
+    right: -130px;
+    background: rgba(255, 200, 0, 0.18);
+    border-radius: 50%;
+    filter: blur(90px);
+}
+
+.cta-final-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-final h2 {
+    margin-bottom: 24px;
+    color: var(--cor3);
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.08;
+}
+
+.cta-final p {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #dddddd;
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.whatsapp {
+    width: auto;
+    max-width: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 30px;
+    background: var(--cor2);
+    color: var(--cor1);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 800;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(255, 200, 0, 0.25);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.whatsapp:hover {
+    transform: translateY(-4px);
+    background: #ffffff;
+    box-shadow: 0 18px 45px rgba(255, 255, 255, 0.16);
+}
+
+.whatsapp-icone {
+    color: #128c3e;
+    font-size: 1.2rem;
+}
+
+.cta-final small {
+    display: block;
+    margin-top: 18px;
+    color: #b5b5b5;
+}
+
+/* RODAPÉ */
+
+.rodape {
+    padding: 70px 24px 25px;
+    background: #020202;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rodape-conteudo {
+    width: min(1180px, 100%);
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 50px;
+    margin: 0 auto 55px;
+}
+
+.rodape-marca img {
+    width: min(250px, 100%);
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.rodape-marca p {
+    max-width: 380px;
+    color: #9f9f9f;
+    line-height: 1.7;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 20px;
+    color: var(--cor2);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.rodape-coluna a,
+.rodape-coluna p {
+    display: block;
+    margin-bottom: 12px;
+    color: #bdbdbd;
+    text-decoration: none;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna a:hover {
+    color: var(--cor2);
+}
+
+.rodape-final {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.rodape-final p {
+    color: #777777;
+    font-size: 0.83rem;
+}
+
+@media (max-width: 760px) {
+.proposito-container {
+    padding: 75px 20px;
+}
+
+.proposito-cards {
+    grid-template-columns: 1fr;
+}
+
+.proposito-card {
+    min-height: auto;
+    padding: 32px 26px;
+}
+
+.cta-final {
+    padding: 85px 20px;
+}
+
+.whatsapp {
+    width: 100%;
+    padding: 17px 20px;
+}
+
+.rodape-conteudo {
+    grid-template-columns: 1fr;
+    gap: 38px;
+}
+
+}
